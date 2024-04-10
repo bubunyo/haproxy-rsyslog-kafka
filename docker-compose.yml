@@ -29,3 +29,19 @@ services:
     environment:
       - KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS=kafka:9092
       - KAFKA_CLUSTERS_0_NAME=4L6g3nShT-eMCtK--X86sw
+
+  app:
+    build:
+      dockerfile: ./app/Dockerfile
+    ports:
+      - "8090:8090"
+
+  haproxy:
+    image: haproxy
+    ports:
+        - "8100:8100"
+    volumes:
+        - ./haproxy/config:/usr/local/etc/haproxy
+        - ./haproxy/data:/var/lib/haproxy
+    depends_on:
+      - app
