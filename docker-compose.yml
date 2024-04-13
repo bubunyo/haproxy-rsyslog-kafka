@@ -32,7 +32,8 @@ services:
 
   app:
     build:
-      dockerfile: ./app/Dockerfile
+      context: ./app
+      dockerfile: ./Dockerfile
     ports:
       - "8090:8090"
 
@@ -42,6 +43,15 @@ services:
         - "8100:8100"
     volumes:
         - ./haproxy/config:/usr/local/etc/haproxy
-        - ./haproxy/data:/var/lib/haproxy
     depends_on:
       - app
+      - rsyslog
+
+  rsyslog:
+    build:
+      context: ./rsyslog
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./rsyslog/logs:/logs
+    ports:
+      - 514:514/udp
