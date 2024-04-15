@@ -18,24 +18,24 @@ curl -X POST http://localhost:8100/json-reqeust?id=abcd1234&body=full -H "Conten
 generates a log line in kafka such as 
 ```json
 {
-	"host": "a7a674c4886d",
-	"queue": {
-		"backend": 0,
-		"srv": 0
-	},
-	"network": {
-		"client_ip": "172.21.0.1"
-	},
-	"request": {
-		"method": "POST",
-		"uri": "/json-reqeust?id=abcd1234&body=full",
-		"protocol": "HTTP/1.1",
-		"headers": "host: localhost:8100\r\nuser-agent: curl/8.4.0\r\naccept: */*\r\ncontent-type: application/json\r\ncontent-length: 49\r\n\r\n",
-		"body": "{\"username\":\"jon_snow\",\"house\":\"Targaryen,Stark\"}"
-	},
-	"response": {
-		"status_code": 200
-	}
+  "host": "a7a674c4886d",
+  "queue": {
+    "backend": 0,
+    "srv": 0
+  },
+  "network": {
+    "client_ip": "172.21.0.1"
+  },
+  "request": {
+    "method": "POST",
+    "uri": "/json-reqeust?id=abcd1234&body=full",
+    "protocol": "HTTP/1.1",
+    "headers": "host: localhost:8100\r\nuser-agent: curl/8.4.0\r\naccept: */*\r\ncontent-type: application/json\r\ncontent-length: 49\r\n\r\n",
+    "body": "{\"username\":\"jon_snow\",\"house\":\"Targaryen,Stark\"}"
+  },
+  "response": {
+    "status_code": 200
+  }
 }
 ```
 
