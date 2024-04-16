@@ -42,7 +42,7 @@ services:
     ports:
         - "8100:8100"
     volumes:
-        - ./haproxy/config:/usr/local/etc/haproxy
+        - ./haproxy:/usr/local/etc/haproxy
     depends_on:
       - app
       - rsyslog
